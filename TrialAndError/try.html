@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle Button Example - Page 1</title>
+    <style>
+        body{
+            background-color: #4caf50;
+        }
+        .toggle-container {
+            display: flex;
+            align-items: center;
+        }
+        .toggle-button {
+            appearance: none;
+            -webkit-appearance: none;
+            width: 50px;
+            height: 25px;
+            background-color: #ccc;
+            border-radius: 15px;
+            position: relative;
+            outline: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .toggle-button::before {
+            content: 'Off';
+            position: absolute;
+            top: 50%;
+            left: 5px;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 14px;
+        }
+        .toggle-button:checked {
+            background-color: #4caf50;
+        }
+        .toggle-button:checked::before {
+            content: 'On';
+            left: 25px;
+        }
+        .toggle-button::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border-radius: 50%;
+            top: 2.5px;
+            left: 2.5px;
+            transition: left 0.3s;
+        }
+        .toggle-button:checked::after {
+            left: 27.5px;
+        }
+        .label {
+            margin-left: 10px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="toggle-container">
+        <input type="checkbox" id="toggle" class="toggle-button">
+        <label for="toggle" class="label">Competition Mode</label>
+    </div>
+
+    <script>
+        document.getElementById('toggle').addEventListener('change', function() {
+            if (this.checked) {
+                window.location.href = 'try2.html';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle Button Example - Competition Page</title>
+    <style>
+        body{
+            background-color: rgb(103, 102, 102);
+        }
+        .toggle-container {
+            display: flex;
+            align-items: center;
+        }
+        .toggle-button {
+            appearance: none;
+            -webkit-appearance: none;
+            width: 50px;
+            height: 25px;
+            background-color: #4caf50;
+            border-radius: 15px;
+            position: relative;
+            outline: none;
+            cursor: pointer;
+            transition:right background-color 0.3s;
+        }
+        .toggle-button::before {
+            content: 'On';
+            position: absolute;
+            top: 50%;
+            right: 22px;
+            transform: translateX(70%);
+            color: white;
+            font-size: 14px;
+        }
+        .toggle-button:checked {
+            background-color: #3ce1be;
+        }
+        .toggle-button:checked::before {
+            content: 'on';
+            left: 20px;
+            top: 5px;
+        }
+        .toggle-button::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: rgb(168, 168, 168);
+            border-radius: 50%;
+            top: 2.5px;
+            left: 27.5px;
+            transition: left 0.3s;
+        }
+        .toggle-button:checked::after {
+            left: 2.5px;
+        }
+        .label {
+            margin-left: 10px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="toggle-container">
+        <input type="checkbox" id="toggle" class="toggle-button" checked>
+        <label for="toggle" class="label">Competition Mode</label>
+    </div>
+
+    <script>
+        document.getElementById('toggle').addEventListener('change', function() {
+            if (!this.checked) {
+                window.location.href = 'try.html';
+            }
+        });
+    </script>
+</body>
+</html>
+
+</html>
